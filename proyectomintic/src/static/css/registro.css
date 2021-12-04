@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.containerPrincipal {
+  position: relative;
+  width: 100% !important;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.contIzquierdo {
+  position: relative;
+  height: 100%;
+  float: left;
+  background-color: red;
+  z-index: -1;
+}
+
+.imgRegistro {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  width: 100%;
+  min-width: 400px;
+  height: auto;
+}
+
+.contDerecho {
+  height: 100%;
+  position: relative;
+  float: right;
+  text-align: center;
+}
+
+.contDerecho h2 {
+  text-align: center;
+  margin: 120px 0 30px 0;
+  font-size: 36px;
+}
+
+.contDerecho form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contDerecho .inputs {
+  list-style: none;
+  display: block;
+  margin: 15px auto;
+  border: none;
+  border-radius: 25px;
+  max-width: 300px;
+  width: 60%;
+  color: #454444 !important;
+  outline: none;
+  background-color: #ededed;
+  text-align: center;
+  padding: 3px 0;
+}
+.contDerecho .btn-registro {
+  width: auto !important;
+  padding: 3px 20px;
+  background-color: #028d43;
+  color: #ffffff !important;
+}
