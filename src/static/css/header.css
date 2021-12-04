@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100% !important;
+  height: 80px;
+  background-color: #ffffff;
+  z-index: 10000;
+  -webkit-box-shadow: 0px 3px 17px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 17px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 17px -2px rgba(0, 0, 0, 0.75);
+  z-index: 100;
+}
+
+.logotipo {
+  margin: 8px 0 0 50px;
+  width: 200px;
+}
+
+.btn-login-header {
+  position: absolute;
+  top: 20px;
+  right: 150px;
+  background-color: #018e47;
+  border: none;
+  padding: 5px 20px;
+  color: #ffffff;
+  border-radius: 25px;
+  z-index: 100;
+}
+
+.btn-registro-header {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background-color: #df1927;
+  border: none;
+  padding: 5px 20px;
+  color: #ffffff;
+  border-radius: 25px;
+  margin-right: 20px;
+  z-index: 100;
+}
