@@ -1,0 +1,50 @@
+{
+  "creditos": [
+    {
+      "id": 1,
+      "idCliente": 123,
+      "valor": 500,
+      "plazo": 36,
+      "cuotas": [
+        {
+          "id": 1,
+          "fecha": "01-01-2021",
+          "capital": 1000,
+          "interes": 300,
+          "pagada": false
+        },
+        {
+          "id": 2,
+          "fecha": "01-01-2021",
+          "capital": 1000,
+          "interes": 300,
+          "pagado": false
+        },
+        {
+          "id": 3,
+          "fecha": "01-01-2021",
+          "capital": 1000,
+          "interes": 300,
+          "pagado": false
+        },
+        {
+          "id": 4,
+          "fecha": "01-01-2021",
+          "capital": 1000,
+          "interes": 300,
+          "pagado": false
+        },
+      ]
+    },
+        {
+      "id": 2,
+      "valor": 400,
+      "plazo": 24
+    },
+        {
+      "id": 3,
+      "valor": 800,
+      "plazo": 12
+    },
+  ]
+}
