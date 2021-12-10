@@ -1,7 +1,8 @@
 import { Link} from "react-router-dom";
-import SolicitudCreditoForm from './Forms/SolicitudCreditoForm';
+import HistorialPagos from "./Tables/HistorialPagos"
+import SOLICITUDES from "./mocks/dbSolicitudes";
 
-function Solicitudes() {
+function ConsultasPagos() {
   return (
   <body>
       {/* <!-- ======= Header ======= --> */}
@@ -16,9 +17,9 @@ function Solicitudes() {
         <nav id="navbar" className="navbar">
           <ul>
             <li><Link to="/index" className="nav-link scrollto">Inicio</Link></li>
-            <li><Link to="/solicitudes" className="nav-link scrollto active">Solicitudes</Link></li>
-            <li><Link to="/consultas" className="nav-link scrollto">Consultas</Link></li>
-            <li><Link to="/pagos"  className="nav-link scrollto">Pagos</Link></li>
+            <li><Link to="/solicitudes" className="nav-link scrollto">Solicitudes</Link></li>
+            <li><Link to="/consultas" className="nav-link scrollto active">Consultas</Link></li>
+            <li><Link to="/simulacionpago"  className="nav-link scrollto">Simulación de pago</Link></li>
             <li><Link to="/contactenos" className="nav-link scrollto">Contactenos</Link></li>
             <li><Link to="/dashboard" className="nav-link scrollto">Dashboard</Link></li>
             <li><Link to="/" className="getstarted scrollto">Salir</Link></li>
@@ -36,10 +37,10 @@ function Solicitudes() {
         <div className="container">
 
           <div className="d-flex justify-content-between align-items-center">
-            <h2>Solicitudes</h2>
+            <h2>Consultas</h2>
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li>Solicitudes</li>
+              <li>Consultas</li>
             </ol>
           </div>
           <nav id="navbar1" className="navbar1">
@@ -52,7 +53,7 @@ function Solicitudes() {
           </nav>{/*<!-- .navbar -->*/}
         </div>
       </section>{/*<!-- End Breadcrumbs Section -->*/}
-  <section id="contact" className="contact">
+      <section id="consulta" className="consulta">
         <div className="container">
   
           <div className="row">
@@ -60,8 +61,11 @@ function Solicitudes() {
             <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             </div>
   
-            <div className="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-            <SolicitudCreditoForm />
+            <div className="col-lg-5 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+                <h2 className="titleHistorial">Historial de pagos</h2>
+
+                <HistorialPagos data={SOLICITUDES} />
+                
             </div>
   
             <div className="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
@@ -70,10 +74,10 @@ function Solicitudes() {
           </div>
   
         </div>
-      </section>{/* <!-- End Contact Section --> */}
+      </section>
     </main>{/*<!-- End #main -->*/}
   </body>
   );
 }
 
-export default Solicitudes;
+export default ConsultasPagos;

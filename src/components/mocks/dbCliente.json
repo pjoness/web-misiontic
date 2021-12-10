@@ -1,0 +1,10 @@
+{
+  "nombre": "Nombre Completo",
+  "tipoID": "CC",
+  "id": 1,
+  "correo": "ejemplo@gmail.com",
+  "fechaNacimiento": "01-01-1990",
+  "fechaExpedicion": "01-01-2000",
+  "ingresos": 3000000,
+  "egresos": 2000000
+}

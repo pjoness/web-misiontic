@@ -1,6 +1,6 @@
 import { Link} from "react-router-dom";
 
-function Principal() {
+function HomeUsuario() {
   return (
   <body>
     {/* <!-- ======= Header ======= --> */}
@@ -15,10 +15,9 @@ function Principal() {
         <nav id="navbar" className="navbar">
           <ul>
             <li><Link to="/index" className="nav-link scrollto active">Inicio</Link></li>
-            <li><Link to="/solicitudes" className="nav-link scrollto">Solicitudes</Link></li>
-            <li><Link to="/consultas" className="nav-link scrollto">Consultas</Link></li>
-            <li><Link to="/pagos"  className="nav-link scrollto">Pagos</Link></li>
-            <li><Link to="/contactenos" className="nav-link scrollto">Contactenos</Link></li>
+            <li><Link to="/user/solicitudes" className="nav-link scrollto">Solicitudes Creditos</Link></li>
+            <li><Link to="/user/prorrogas"  className="nav-link scrollto">Solicitudes Prorrogas</Link></li>
+            <li><Link to="/user/creditos"  className="nav-link scrollto">Creditos Vigentes</Link></li>
             <li><Link to="/dashboard" className="nav-link scrollto">Dashboard</Link></li>
             <li><Link to="/" className="getstarted scrollto">Salir</Link></li>
           </ul>
@@ -34,11 +33,8 @@ function Principal() {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Creditos en línea, mas facil , mas rapido</h1>
-            <h2 data-aos="fade-up" data-aos-delay="400">Nuestra Fuerza Cooperativa nos acompaña siempre,estas a un paso de obtenerlo!</h2>
-            <div data-aos="fade-up" data-aos-delay="800">
-              <Link to="/solicitudes" className="btn-get-started scrollto">Comienza tu solicitud de crédito</Link>
-            </div>
+            <h1>Bienvenido Usuario</h1>
+            <h2>Aqui puedes gestionar las solicitudes realizadas por los clientes</h2>
           </div>
           <div className="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
             <img src="assets/img/undraw_wallet_aym5.png" className="img-fluid animated" alt=""/>
@@ -89,4 +85,4 @@ function Principal() {
   );
 }
 
-export default Principal;
+export default HomeUsuario;

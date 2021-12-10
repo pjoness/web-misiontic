@@ -16,7 +16,7 @@ function Contactenos() {
             <li><Link to="/index" className="nav-link scrollto">Inicio</Link></li>
             <li><Link to="/solicitudes" className="nav-link scrollto">Solicitudes</Link></li>
             <li><Link to="/consultas" className="nav-link scrollto">Consultas</Link></li>
-            <li><Link to="/simulacionpago"  className="nav-link scrollto">Simulación de pago</Link></li>
+            <li><Link to="/pagos"  className="nav-link scrollto">Pagos</Link></li>
             <li><Link to="/contactenos" className="nav-link scrollto active">Contactenos</Link></li>
             <li><Link to="/dashboard" className="nav-link scrollto">Dashboard</Link></li>
             <li><Link to="/" className="getstarted scrollto">Salir</Link></li>

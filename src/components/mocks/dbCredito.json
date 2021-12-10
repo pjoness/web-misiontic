@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "idCliente": 1,
+  "valor": 10000000,
+  "plazo": 36,
+  "cuotas": [
+    {
+      "fecha": "01-01-2021",
+      "capital": 1000000,
+      "interes": 300000,
+      "pago": false
+    },
+    {
+      "fecha": "01-02-2021",
+      "capital": 1000000,
+      "interes": 300000,
+      "pago": false
+    },
+    {
+      "fecha": "01-03-2021",
+      "capital": 1000000,
+      "interes": 300000,
+      "pago": false
+    },
+    {
+      "fecha": "01-04-2021",
+      "capital": 1000000,
+      "interes": 300000,
+      "pago": false
+    },
+  ]
+}

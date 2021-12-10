@@ -5,11 +5,21 @@ import Inicio from './components/Inicio';
 import Login from './components/Login';
 import RegistroUsuario from './components/RegistroUsuario';
 import Consultas from './components/Consultas';
-import SimulacionPago from './components/SimulacionPago';
+import ConsultasHistorial from './components/ConsultasHistorial';
+import Pagos from './components/Pagos';
+import PagoCredito from './components/PagoCredito';
 import Contactenos from './components/Contactenos';
 import Solicitudes from './components/Solicitudes';
 import Dashboard from './components/Dashboard';
+import ConsultasPagos from './components/ConsultasPagos';
+import HomeUsuario from "./components/HomeUsuario";
+import SolicitudesCredito from "./components/SolicitudesCredito";
+import SolicitudesProrroga from "./components/SolicitudesProrroga";
+import RevisionesCredito from "./components/RevisionesCredito";
+import CreditosVigentes from "./components/CreditosVigentes";
+import CreditosHistorial from "./components/CreditosHistorial";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+{/*import Bienvenida from './components/Bienvenida';*/}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,10 +30,20 @@ ReactDOM.render(
           <Route path="/login" element={<Login/>} />
           <Route path="/index" element={<Principal/>} />
           <Route path="/consultas" element={<Consultas/>} />
-          <Route path="/simulacionpago" element={<SimulacionPago/>} />
+          <Route path="/consultas/historial" element={<ConsultasHistorial/>} />
+          <Route path="/consultas/pagos" element={<ConsultasPagos/>} />
+          <Route path="/pagos" element={<Pagos/>} />
+          <Route path="/pagar" element={<PagoCredito/>} />
           <Route path="/contactenos" element={<Contactenos/>} />
           <Route path="/solicitudes" element={<Solicitudes/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/user/home" element={<HomeUsuario/>} />
+          <Route path="/user/solicitudes" element={<SolicitudesCredito/>} />
+          <Route path="/user/prorrogas" element={<SolicitudesProrroga/>} />
+          <Route path="/user/revisiones" element={<RevisionesCredito/>} />
+          <Route path="/user/creditos" element={<CreditosVigentes/>} />
+          <Route path="/user/historial" element={<CreditosHistorial/>} />
+          {/*<Route exact path="/prueba" element={<Bienvenida/>} />*/}
       </Routes>
     </Router>
   </React.StrictMode>,

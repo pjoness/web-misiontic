@@ -1,7 +1,7 @@
 import { Link} from "react-router-dom";
-import SolicitudCreditoForm from './Forms/SolicitudCreditoForm';
+import HistorialPagosForm from "./Forms/HistorialPagosForm";
 
-function Solicitudes() {
+function Consultas() {
   return (
   <body>
       {/* <!-- ======= Header ======= --> */}
@@ -16,8 +16,8 @@ function Solicitudes() {
         <nav id="navbar" className="navbar">
           <ul>
             <li><Link to="/index" className="nav-link scrollto">Inicio</Link></li>
-            <li><Link to="/solicitudes" className="nav-link scrollto active">Solicitudes</Link></li>
-            <li><Link to="/consultas" className="nav-link scrollto">Consultas</Link></li>
+            <li><Link to="/solicitudes" className="nav-link scrollto">Solicitudes</Link></li>
+            <li><Link to="/consultas" className="nav-link scrollto active">Consultas</Link></li>
             <li><Link to="/pagos"  className="nav-link scrollto">Pagos</Link></li>
             <li><Link to="/contactenos" className="nav-link scrollto">Contactenos</Link></li>
             <li><Link to="/dashboard" className="nav-link scrollto">Dashboard</Link></li>
@@ -36,23 +36,23 @@ function Solicitudes() {
         <div className="container">
 
           <div className="d-flex justify-content-between align-items-center">
-            <h2>Solicitudes</h2>
+            <h2>Consultas</h2>
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li>Solicitudes</li>
+              <li>Consultas</li>
             </ol>
           </div>
           <nav id="navbar1" className="navbar1">
             <ul>
-              <li><a className="nav-link scrollto " href="#hero">Opcion 1</a></li>
-              <li><a className="nav-link scrollto" href="#about">Opcion 2</a></li>
+              <li><a className="nav-link scrollto " href="#hero">Historial de Pagos</a></li>
+              <li><a className="nav-link scrollto" href="#about">Certificados</a></li>
               <li><a className="nav-link scrollto" href="#services">Opcion 3</a></li>
             </ul>
             <i className="bi bi-list mobile1-nav-toggle"></i>
           </nav>{/*<!-- .navbar -->*/}
         </div>
       </section>{/*<!-- End Breadcrumbs Section -->*/}
-  <section id="contact" className="contact">
+      <section id="contact" className="contact">
         <div className="container">
   
           <div className="row">
@@ -61,7 +61,7 @@ function Solicitudes() {
             </div>
   
             <div className="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-            <SolicitudCreditoForm />
+            <HistorialPagosForm />
             </div>
   
             <div className="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
@@ -70,10 +70,10 @@ function Solicitudes() {
           </div>
   
         </div>
-      </section>{/* <!-- End Contact Section --> */}
+      </section>
     </main>{/*<!-- End #main -->*/}
   </body>
   );
 }
 
-export default Solicitudes;
+export default Consultas;

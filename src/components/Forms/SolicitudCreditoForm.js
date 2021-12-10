@@ -30,7 +30,7 @@ const SolicitudCreditoForm = () => {
                     </div>
 
                     <div className="col-12">
-                      <label for="yourValueEg" class="form-label">Plazo en años</label>
+                      <label for="yourValueEg" class="form-label">Plazo en meses</label>
                       <input type="number" name="valueEg" class="form-control" id="yourValueEg" value={plazo} onChange={(e) => setPlazo(e.target.value)} required/>
                       <div className="invalid-feedback">Ingrese el plazo</div>
                     </div>

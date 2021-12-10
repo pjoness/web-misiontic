@@ -1,5 +1,8 @@
-import { Link} from "react-router-dom";
-function SimulacionPago() {
+import { Link } from "react-router-dom";
+import SolicitudesProrrogas from "./Tables/SolicitudesProrrogas";
+import PRORROGAS from "./mocks/prorrogas";
+
+function SolicitudesProrroga() {
   return (
   <body>
       {/* <!-- ======= Header ======= --> */}
@@ -13,11 +16,10 @@ function SimulacionPago() {
 
         <nav id="navbar" className="navbar">
           <ul>
-            <li><Link to="/index" className="nav-link scrollto">Inicio</Link></li>
-            <li><Link to="/solicitudes" className="nav-link scrollto">Solicitudes</Link></li>
-            <li><Link to="/consultas" className="nav-link scrollto">Consultas</Link></li>
-            <li><Link to="/simulacionpago"  className="nav-link scrollto active">Simulación de pago</Link></li>
-            <li><Link to="/contactenos" className="nav-link scrollto">Contactenos</Link></li>
+            <li><Link to="/user/home" className="nav-link scrollto">Inicio</Link></li>
+            <li><Link to="/user/solicitudes" className="nav-link scrollto">Solicitudes Creditos</Link></li>
+            <li><Link to="/user/prorrogas"  className="nav-link scrollto active">Solicitudes Prorrogas</Link></li>
+            <li><Link to="/user/creditos"  className="nav-link scrollto">Creditos Vigentes</Link></li>
             <li><Link to="/dashboard" className="nav-link scrollto">Dashboard</Link></li>
             <li><Link to="/" className="getstarted scrollto">Salir</Link></li>
           </ul>
@@ -34,26 +36,23 @@ function SimulacionPago() {
         <div className="container">
 
           <div className="d-flex justify-content-between align-items-center">
-            <h2>Simulación de pago</h2>
+            <h2>Solicitudes Prorrogas</h2>
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li>Simulación de pago</li>
+              <li>Solicitudes</li>
             </ol>
           </div>
           <nav id="navbar1" className="navbar1">
-            <ul>
-              <li><a className="nav-link scrollto " href="#hero">Opcion 1</a></li>
-              <li><a className="nav-link scrollto" href="#about">Opcion 2</a></li>
-              <li><a className="nav-link scrollto" href="#services">Opcion 3</a></li>
-            </ul>
             <i className="bi bi-list mobile1-nav-toggle"></i>
           </nav>{/*<!-- .navbar -->*/}
         </div>
       </section>{/*<!-- End Breadcrumbs Section -->*/}
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <section id="consulta" className="consulta">
+        <SolicitudesProrrogas data={PRORROGAS} />
+      </section>
     </main>{/*<!-- End #main -->*/}
   </body>
   );
 }
 
-export default SimulacionPago;
+export default SolicitudesProrroga;
