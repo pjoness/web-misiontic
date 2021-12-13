@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const SolicitudesCreditos = (props) => {
   const { data } = props;
+
   return (
     <table className="tableCredito">
       <thead>
@@ -22,7 +23,7 @@ const SolicitudesCreditos = (props) => {
                 <td>{credito.valor}</td>
                 <td>{credito.plazo}</td>
                 <td>
-                  <Link to="/user/revisiones?id=1" button className="btn btn-primary w-100" type="submit">Revisar</Link>
+                  <Link to={`/user/revisiones?id=${credito.id}`} button className="btn btn-primary w-100" type="submit">Revisar</Link>
                 </td>
               </tr>
             )

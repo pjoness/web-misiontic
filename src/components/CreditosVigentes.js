@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
-import SOLICITUDES from "./mocks/dbSolicitudes";
+import { useState } from "react";
+import { useEffect } from "react";
 import Creditos from "./Tables/Creditos";
 
 function CreditosVigentes() {
+  const [creditos, setCreditos] = useState(null);
+
+  useEffect(() => {
+    fetch('https://conectar.pauljones10.repl.co/creditos')
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      setCreditos(data.creditos);
+    })
+    .catch( e => {
+      console.log(e);
+    })
+  }, []);
+
   return (
   <body>
       {/* <!-- ======= Header ======= --> */}
@@ -48,7 +64,7 @@ function CreditosVigentes() {
         </div>
       </section>{/*<!-- End Breadcrumbs Section -->*/}
       <section id="consulta" className="consulta">
-        <Creditos data={SOLICITUDES} />
+        {creditos && <Creditos data={creditos} />}
       </section>
     </main>{/*<!-- End #main -->*/}
   </body>

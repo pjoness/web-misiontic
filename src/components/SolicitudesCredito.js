@@ -1,8 +1,25 @@
 import { Link } from "react-router-dom";
-import SOLICITUDES from "./mocks/dbSolicitudes";
+import { useState } from "react";
+import { useEffect } from "react";
 import SolicitudesCreditos from "./Tables/SolicitudesCreditos";
 
 function SolicitudesCredito() {
+
+  const [solicitudes, setSolicitudes] = useState(null);
+
+  useEffect(() => {
+    fetch('https://conectar.pauljones10.repl.co/solicitudes')
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      setSolicitudes(data.solicitudes);
+    })
+    .catch( e => {
+      console.log(e);
+    })
+  }, []);
+  
   return (
   <body>
       {/* <!-- ======= Header ======= --> */}
@@ -48,7 +65,7 @@ function SolicitudesCredito() {
         </div>
       </section>{/*<!-- End Breadcrumbs Section -->*/}
       <section id="consulta" className="consulta">
-        <SolicitudesCreditos data={SOLICITUDES} />
+        {solicitudes && <SolicitudesCreditos data={solicitudes} />}
       </section>
     </main>{/*<!-- End #main -->*/}
   </body>

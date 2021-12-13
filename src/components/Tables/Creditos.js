@@ -22,7 +22,7 @@ const Creditos = (props) => {
                             <td>{ credito.valor }</td>
                             <td>{ credito.plazo }</td>
                             <td>
-                            <Link to="/user/historial?id=1" button className="btn btn-primary w-100" type="submit">Historial</Link>
+                            <Link to={`/user/historial?id=${credito.id}`} button className="btn btn-primary w-100" type="submit">Historial</Link>
                             </td>
                           </tr>
                         )
