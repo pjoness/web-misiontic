@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const RegistroForm = () => {
+const UsuarioForm = (idd) => {
+  const [id, setId] = useState(idd.id);
   const [name, setName] = useState('');
   const [tipoid, setTipoId] = useState('');
-  const [id, setId] = useState('');
   const [email, setEmail] = useState('');
   const [dateborn, setDateBorn] = useState('');
   const [dateexp, setDateExp] = useState('');
@@ -14,18 +14,40 @@ const RegistroForm = () => {
   const [terms, setTerms] = useState(false);
   const navigate = useNavigate();
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch('https://conectar.pauljones10.repl.co/user/' + id)
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      setUser(data);
+      setName(data.name);
+      setTipoId(data.tipoid);
+      setEmail(data.email);
+      setDateBorn(data.dateborn);
+      setDateExp(data.dateexp);
+      setIngresos(data.ingresos);
+      setEgresos(data.egresos);
+    })
+    .catch( e => {
+      console.log(e);
+    })
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const user = { name, tipoid, id, email, dateborn, dateexp, ingresos, egresos, password };
+    const user = { name, tipoid, email, dateborn, dateexp, ingresos, egresos };
 
-    fetch('https://conectar.pauljones10.repl.co/register', {
-      method: 'POST',
+    fetch('https://conectar.pauljones10.repl.co/user/' + id, {
+      method: 'PUT',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)
     }).then(() => {
-      console.log("Nuevo usuario creado");
-      navigate('/login');
+      console.log("Usuario actualizado");
+      navigate('/usuarios');
     })
   }
 
@@ -34,8 +56,7 @@ const RegistroForm = () => {
     <div className="card-body">
 
       <div className="pt-4 pb-2">
-        <h5 className="card-title text-center pb-0 fs-4">Crear una cuenta</h5>
-        <p className="text-center small">Ingrese los siguientes datos para crear su cuenta</p>
+        <h5 className="card-title text-center pb-0 fs-4">Actualizar usuario</h5>
       </div>
 
       <form className="row g-3 needs-validation" onSubmit={handleSubmit} novalidate>
@@ -54,7 +75,7 @@ const RegistroForm = () => {
         <div className="col-12">
           <label for="yourUsername" className="form-label">Número de identificación</label>
           <div className="input-group has-validation">
-            <input type="text" name="id" className="form-control" id="id" value={id} onChange={(e) => setId(e.target.value)} required />
+            <input type="text" name="id" className="form-control" id="id" value={id} onChange={(e) => setId(e.target.value)} readOnly />
             <div className="invalid-feedback">Por favor ingrese un numero de identificacion</div>
           </div>
         </div>
@@ -93,29 +114,12 @@ const RegistroForm = () => {
         </div>
 
         <div className="col-12">
-          <label for="yourValueEg" class="form-label">Contraseña</label>
-          <input type="password" name="passwword" class="form-control" id="yourPassword" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <div className="invalid-feedback">Crear constraseña</div>
-        </div>
-
-        <div className="col-12">
-          <div className="form-check">
-            <input className="form-check-input" name="terms" type="checkbox"
-              checked={terms} value="" onChange={() => setTerms(!terms)} id="acceptTerms" required />
-            <label className="form-check-label" for="acceptTerms">Yo acepto <a href="#"> los terminos y las condiciones</a></label>
-            <div className="invalid-feedback">Debe aceptar antes de enviar su información.</div>
-          </div>
-        </div>
-        <div className="col-12">
           {/*<Link to="/index" button className="btn btn-primary w-100" type="submit">Crear cuenta</Link>*/}
-          <input className="btn btn-primary w-100" type="submit" value="Crear Cuenta" />
-        </div>
-        <div className="col-12">
-          <Link to="/login" className="small mb-0">¿Ya tiene una cuenta? <a >Ingrese</a></Link>
+          <input className="btn btn-primary w-100" type="submit" value="Actualizar" />
         </div>
       </form>
     </div>
   )
 }
 
-export default RegistroForm;
+export default UsuarioForm;

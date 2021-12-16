@@ -1,26 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
-  const navigate = useNavigate();
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    const credentials = { user, pass };
-
-    fetch('https://conectar.pauljones10.repl.co/login', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials)
-    }).then(() => {
-      console.log("Ingreso exitoso");
-      navigate('/index');
-    })
-  }
-  
   return (
     <div className="card-body">
 
@@ -29,7 +13,7 @@ const LoginForm = () => {
         <p className="text-center small">Ingrese su usuario y contraseña</p>
       </div>
 
-      <form className="row g-3 needs-validation" onSubmit={handleSubmit} novalidate>
+      <form className="row g-3 needs-validation" novalidate>
 
         <div class="col-12">
           <label for="yourUsername" class="form-label">Usuario</label>
@@ -53,8 +37,7 @@ const LoginForm = () => {
           </div>
         </div>
         <div class="col-12">
-          {/*<Link to="/index" class="btn btn-primary w-100" type="submit">Ingresar</Link>*/}
-          <input className="btn btn-primary w-100" type="submit" value="Ingresar" />
+          <Link to="/index" class="btn btn-primary w-100" type="submit">Ingresar</Link>
         </div>
         <div class="col-12">
           <Link to="/registro" class="small mb-0">¿No tienes cuenta? <a>Crea una</a></Link>
