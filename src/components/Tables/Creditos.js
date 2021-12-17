@@ -17,12 +17,12 @@ const Creditos = (props) => {
           data.map(credito => {
             return (
               <tr>
-                <td>{credito.id}</td>
+                <td>{credito.idCredito}</td>
                 <td>{credito.idCliente}</td>
                 <td>{credito.valor}</td>
                 <td>{credito.plazo}</td>
                 <td>
-                  <Link to={`/user/historial?id=${credito.id}`} button className="btn btn-primary w-100" type="submit">Historial</Link>
+                  <Link to={`/user/historial/${credito.idCredito}`} button className="btn btn-primary w-100" type="submit">Historial</Link>
                 </td>
               </tr>
             )

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const validationHandler = (input, min, max, msgMin, msgMax) => {
   if (input < min) return msgMin;
@@ -7,25 +7,51 @@ const validationHandler = (input, min, max, msgMin, msgMax) => {
   else return "";
 }
 
-const RevisionCreditoForm = () => {
+const RevisionCreditoForm = (idd) => {
+  const [id, setId] = useState(idd.id);
+  const [valorsol, setValorSol] = useState('');
+  const [plazo, setPlazo] = useState('');
   const [aprob, setAprob] = useState('');
   const [tasa, setTasa] = useState('');
   const [valor, setValor] = useState('');
-  
+  const navigate = useNavigate();
+
+  const [solicitud, setSolicitud] = useState(null);
+
+  useEffect(() => {
+    fetch('https://conectar.pauljones10.repl.co/solicitud/' + id)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setSolicitud(data);
+        setValorSol(data.valor);
+        setPlazo(data.plazo);
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (aprob == "Aprobado") {
-      const credito = { valor, tasa };
-      
+      const idCliente = 1;
+
+      const credito = { idCliente, valor, plazo, tasa };
+
       fetch('https://conectar.pauljones10.repl.co/creditos', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credito)
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(credito)
       })
-      .then(() => {
-      console.log("Nueva solicitud creada");
-    })
+        .then(() => {
+          console.log("Solicitud aprobada");
+          navigate('/user/solicitudes');
+        })
+    } else {
+      navigate('/user/solicitudes');
     }
   }
 
@@ -34,18 +60,19 @@ const RevisionCreditoForm = () => {
 
       <div className="col-12">
         <label for="yourValueIng" class="form-label">Valor solicitado</label>
-        <input type="text" name="valueIng" class="form-control" id="yourValueIng" value="2.000.000" readonly />
+        <input type="text" name="valueIng" class="form-control" id="yourValueIng" value={valorsol} readOnly />
       </div>
 
       <div className="col-12">
         <label for="yourValueEg" class="form-label">Plazo</label>
-        <input type="text" name="valueEg" class="form-control" id="yourValueEg" value="36" readonly />
+        <input type="text" name="valueEg" class="form-control" id="yourValueEg" value={plazo} readOnly />
         <div className="invalid-feedback">Ingrese el plazo</div>
       </div>
 
       <div className="col-12">
         <label for="yourValueEg" class="form-label">Aprobacion</label>
         <select name="name" className="form-control" id="name" value={aprob} onChange={(e) => setAprob(e.target.value)} required>
+          <option value=""></option>
           <option value="Aprobado">Aprobado</option>
           <option value="Rechazado">Rechazado</option>
         </select>
@@ -66,7 +93,7 @@ const RevisionCreditoForm = () => {
       </div>
 
       <div className="col-12">
-        <Link to="/user/solicitudes" button className="btn btn-primary w-100" type="submit">Aceptar</Link>
+        <input className="btn btn-primary w-100" type="submit" value="Aceptar" />
       </div>
     </form>
   )

@@ -43,9 +43,9 @@ ReactDOM.render(
         <Route path="/user/home" element={<HomeUsuario />} />
         <Route path="/user/solicitudes" element={<SolicitudesCredito />} />
         <Route path="/user/prorrogas" element={<SolicitudesProrroga />} />
-        <Route path="/user/revisiones" element={<RevisionesCredito />} />
+        <Route path="/user/revisiones/:id" element={<RevisionesCredito />} />
         <Route path="/user/creditos" element={<CreditosVigentes />} />
-        <Route path="/user/historial" element={<CreditosHistorial />} />
+        <Route path="/historial/:id" element={<CreditosHistorial />} />
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/newuser/:id" element={<UsuarioInterno />} />
         <Route path="/eliminar/user/:id" element={<UsuarioInternoEliminar />} />

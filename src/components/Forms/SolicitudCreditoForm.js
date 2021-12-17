@@ -15,14 +15,16 @@ const SolicitudCreditoForm = () => {
   const changeHandler = (e) => {
     setValor(e.target.value);
 
-    const error = validationHandler(e.target.value, 10000000, 1000000000, "El valor minimo son 10 millones", "El valor maximo son 1.000 millones");
+    const error = validationHandler(e.target.value, 1000000, 100000000, "El valor minimo es 1.000.000", "El valor maximo son 100 millones");
     setError(error);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const solicitud = { valor, plazo };
+    const idCliente = 100;
+
+    const solicitud = { idCliente, valor, plazo };
 
     fetch('https://conectar.pauljones10.repl.co/solicitudes', {
       method: 'POST',
@@ -50,7 +52,7 @@ const SolicitudCreditoForm = () => {
       </div>
 
       <div className="col-12">
-        <Link to="/consultas" button className="btn btn-primary w-100" type="submit">Solicitar credito</Link>
+        <input className="btn btn-primary w-100" type="submit" value="Solicitar credito" />
       </div>
     </form>
   )

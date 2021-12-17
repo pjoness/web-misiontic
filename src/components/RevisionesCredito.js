@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import RevisionCreditoForm from "./Forms/RevisionCreditoForm";
 
 function RevisionesCredito() {
+  const { id } = useParams();
+  
   return (
   <body>
       {/* <!-- ======= Header ======= --> */}
@@ -54,7 +56,7 @@ function RevisionesCredito() {
             </div>
   
             <div className="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-              <RevisionCreditoForm />
+              <RevisionCreditoForm id={id} />
             </div>
   
             <div className="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">

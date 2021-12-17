@@ -23,7 +23,7 @@ const SolicitudesCreditos = (props) => {
                 <td>{credito.valor}</td>
                 <td>{credito.plazo}</td>
                 <td>
-                  <Link to={`/user/revisiones?id=${credito.id}`} button className="btn btn-primary w-100" type="submit">Revisar</Link>
+                  <Link to={`/user/revisiones/${credito.id}`} button className="btn btn-primary w-100" type="submit">Revisar</Link>
                 </td>
               </tr>
             )

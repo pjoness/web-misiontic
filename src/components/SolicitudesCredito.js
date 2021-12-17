@@ -13,7 +13,7 @@ function SolicitudesCredito() {
       return res.json();
     })
     .then(data => {
-      setSolicitudes(data.solicitudes);
+      setSolicitudes(data);
     })
     .catch( e => {
       console.log(e);
